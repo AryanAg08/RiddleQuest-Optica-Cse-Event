@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-// import Data from "./Data.js"
+import toast, { Toaster } from 'react-hot-toast';
+import { getRiddleByNumber, checkRiddleAnswer } from './HandleData';
 
 const Home = () => {
 
@@ -17,24 +18,24 @@ const Home = () => {
         const riddleRegex = /^(?:[1-9]|1[0-9]|20)$/;
         let response = "";
         if (riddleRegex.test(riddleNum)) {
-            //function call
+            response = getRiddleByNumber(riddleNum);
             if (response == "wrongAns") {
-                alert("wrong");
+                toast.error("Please enter a valid riddle number (1-20).");
             }
-            //setRiddle
+            setRiddle(response);
         } else {
-            alert("error");
+            toast.error("Please enter a valid riddle number (1-20).");
         }
     };
 
     const submitans = () => {
         let finalResponse = "";
 
-        //function call;
+        finalResponse = checkRiddleAnswer(riddleAns);
 
         if (finalResponse == "wrongAns") {
             setRiddleAns("");
-            alert("wrongAns");
+            toast.error("Wrong ans for the riddle.");
 
             return;
         }
@@ -44,6 +45,7 @@ const Home = () => {
 
     return (
         <>
+            <Toaster position="top-right" reverseOrder={false} />
             <div className='heading'>
                 <h1>Codequest Riddle Fun</h1>
             </div>
