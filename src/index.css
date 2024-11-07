@@ -1,10 +1,93 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-body{
-  background: rgb(15 23 42);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed ;
+* {
+  font-family: "Caveat Brush", cursive;
+  font-weight: 300;
+  font-style: normal;
+  background-color: rgb(51, 49, 49);
+}
+
+.heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 2px;
+}
+
+h1 {
+  padding: 20px;
+  color: rgb(16, 16, 15);
+  outline: none;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #a2a2a4, #383737);
+  text-align: center;
+}
+
+.inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+::placeholder {
+  color: #95919c;
+}
+
+input {
+  font-size: 30px;
+  color: #e5dcf3;
+  outline: none;
+  background-color: #151317;
+  font-weight: 100;
+  border: none;
+  text-align: center;
+  border-radius: 20px;
+}
+
+button {
+  font-size: 30px;
+  cursor: pointer;
+  color: #a59eaf;
+  padding: 6px;
+  margin: 10px;
+  box-shadow: rgb(17 17 21) 1px 1px 2px 2px;
+  transition: 0.2s ease;
+  border-radius: 20px;
+
+}
+
+button:hover {
+  color: #eae8ed;
+  transition: 0.2s ease;
+  box-shadow: rgb(59, 59, 72) 1px 1px 2px 2px;
+}
+
+.riddleInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 38px;
+}
+
+.riddleText {
+  /* display: none; */
+  color: #e5dcf3;
+  border: 3px solid rgb(183, 196, 191);
+  outline: none;
+  text-align: center;
+  padding: 20px;
+  border-radius: 20px;
+  min-width: 60%;
+  font-size: 35px;
+  min-height: 70%;
+}
+
+.ans {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  padding: 20px;
+  /* flex-direction: column; */
 }
