@@ -4,6 +4,10 @@
   font-family: "Caveat Brush", cursive;
   font-weight: 300;
   font-style: normal;
+
+}
+
+body {
   background-color: rgb(51, 49, 49);
 }
 
@@ -49,12 +53,13 @@ input {
 button {
   font-size: 30px;
   cursor: pointer;
-  color: #a59eaf;
-  padding: 6px;
+  color: black;
+  padding: 15px;
   margin: 10px;
   box-shadow: rgb(17 17 21) 1px 1px 2px 2px;
   transition: 0.2s ease;
   border-radius: 20px;
+  background: linear-gradient(90deg, #a2a2a4, #383737);
 
 }
 
