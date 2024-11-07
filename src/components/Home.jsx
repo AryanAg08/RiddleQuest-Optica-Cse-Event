@@ -3,7 +3,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import Data from "./Riddles";
 
 let currentRiddleNumber = null; // Global variable to store the current riddle number
-const LOCK_DURATION = 1 * 10 * 1000; // 6 minutes in milliseconds
+const LOCK_DURATION = 6 * 60 * 1000; // 6 minutes in milliseconds
 
 function getRiddleByNumber(riddleNumber) {
     const riddle = Data.find(item => item.riddle === riddleNumber);
@@ -32,6 +32,51 @@ const Home = () => {
     const [riddleAns, setRiddleAns] = useState("");
     const [timeLeft, setTimeLeft] = useState(0);
     const [isLocked, setIsLocked] = useState(false);
+
+
+    useEffect(() => {
+        const handleContextMenu = (event) => {
+            event.preventDefault();
+        };
+
+        document.addEventListener('contextmenu', handleContextMenu);
+
+        return () => {
+            document.removeEventListener('contextmenu', handleContextMenu);
+        };
+    }, []);
+
+    useEffect(() => {
+        const detectDevTools = () => {
+            if (window.outerWidth - window.innerWidth > 100 || window.outerHeight - window.innerHeight > 100) {
+                alert("Please close developer tools to continue.");
+                return;
+            }
+        };
+
+        window.addEventListener('resize', detectDevTools);
+        return () => {
+            window.removeEventListener('resize', detectDevTools);
+        };
+    }, []);
+
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (event.keyCode === 123 || (event.ctrlKey && event.shiftKey && [73, 74].includes(event.keyCode))) {
+                event.preventDefault();
+
+                toast.error("Developer tools are disabled.");
+            }
+        };
+
+        document.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown);
+        };
+    }, []);
+
+
 
     useEffect(() => {
         const lastAccessTime = localStorage.getItem("lastRiddleAccessTime");
