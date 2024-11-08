@@ -1,12 +1,21 @@
-import React from "react"
+import React, {useEffect} from "react"
 import { Route, Routes } from "react-router-dom"
 import Home from './components/Home'
+import LandingPage from "./components/landing/LandingPage"
+import Header from "./components/Header/Header"
 function App() {
+
+
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
+      <div>
+        <Header />
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/Home" element={<LandingPage />} />
+          <Route path="/Event" element={<Home />} />
+        </Routes>
+      </div>
 
     </>
   )
