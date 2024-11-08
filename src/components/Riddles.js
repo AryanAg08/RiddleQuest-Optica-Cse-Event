@@ -1,4 +1,4 @@
-[
+const Data = [
   {
     "riddle": 1,
     "question": "Starting at zero, I grow quite slow, But give me time, and I\u2019ll overflow. My sequence is famous, my growth is fine, And the golden ratio is mine. Add my last two numbers to make me soar.",
@@ -122,3 +122,5 @@
     "redirectLink": "https://www.hackerrank.com/codequest2-1"
   }
 ]
+
+export default Data;
