@@ -151,7 +151,7 @@ const Home = () => {
             return;
         }
 
-        window.open(`https://${finalResponse}`, '_blank');
+        window.open(`${finalResponse}`, '_blank');
         window.location.reload();
     }
 
