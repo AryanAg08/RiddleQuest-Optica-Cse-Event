@@ -80,10 +80,13 @@ const Home = () => {
 
     useEffect(() => {
         const lastAccessTime = localStorage.getItem("lastRiddleAccessTime");
+        const riddleNum = localStorage.getItem("riddleNum");
+        const riddleQuestion = localStorage.getItem("riddleQuestion");
         if (lastAccessTime) {
             const elapsedTime = Date.now() - parseInt(lastAccessTime, 10);
             if (elapsedTime < LOCK_DURATION) {
                 setIsLocked(true);
+                setRiddleNum(riddleNum);
                 setTimeLeft(Math.ceil((LOCK_DURATION - elapsedTime) / 1000));
             }
         }
@@ -107,6 +110,7 @@ const Home = () => {
     }, [isLocked, timeLeft]);
 
     const handleRiddleSubmit = () => {
+
         if (isLocked) {
             toast.error("You need to wait before entering another riddle.");
             return;
@@ -122,16 +126,18 @@ const Home = () => {
                 toast.error("Please enter a valid riddle number (1-20).");
             } else {
                 setRiddle(response);
-                lockRiddleSubmission();
+                lockRiddleSubmission(response);
             }
         } else {
             toast.error("Please enter a valid riddle number (1-20).");
         }
     };
 
-    const lockRiddleSubmission = () => {
+    const lockRiddleSubmission = (response) => {
         const lockTime = Date.now();
         localStorage.setItem("lastRiddleAccessTime", lockTime.toString());
+        localStorage.setItem("riddleNum", riddleNum);
+        localStorage.setItem("riddleQuestion", response);
         setIsLocked(true);
         setTimeLeft(LOCK_DURATION / 1000);
     };
