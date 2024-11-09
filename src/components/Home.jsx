@@ -87,7 +87,7 @@ const Home = () => {
             if (elapsedTime < LOCK_DURATION) {
                 setIsLocked(true);
                 setRiddleNum(riddleNum);
-                setRiddle(riddleQuestion);
+              
                 setTimeLeft(Math.ceil((LOCK_DURATION - elapsedTime) / 1000));
             }
         }
