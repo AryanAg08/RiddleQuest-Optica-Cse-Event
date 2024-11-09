@@ -82,7 +82,7 @@ const LandingPage = () => {
                         
                     </div>
                     <div>
-                    <Link to="/Event">
+                    <Link to="/event">
                         <button onClick={handleFullScreen} style={{paddingLeft:'30px', paddingRight:'30px'}}>
                         Start
                         </button>
