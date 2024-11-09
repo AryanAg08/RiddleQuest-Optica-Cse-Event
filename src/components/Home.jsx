@@ -153,7 +153,7 @@ const Home = () => {
         }
 
         window.open(`${finalResponse}`, '_blank');
-        window.location.reload();
+        window.location.href("/");
     }
 
     return (
