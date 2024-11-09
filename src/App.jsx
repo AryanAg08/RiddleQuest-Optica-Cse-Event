@@ -8,15 +8,12 @@ function App() {
 
   return (
     <>
-      <div>
         <Header />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/Home" element={<LandingPage />} />
           <Route path="/event" element={<Home />} />
         </Routes>
-      </div>
-
     </>
   )
 }
